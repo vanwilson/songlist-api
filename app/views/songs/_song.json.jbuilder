@@ -1,5 +1,5 @@
-json.id photo.id
-json.title photo.title
-json.stanza photo.stanza
-json.chorus photo.chorus
-json.key photo.key
+json.id song.id
+json.title song.title
+json.stanza song.stanza
+json.chorus song.chorus
+json.key song.key
