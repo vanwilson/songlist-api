@@ -15,4 +15,12 @@ class SonglistsControllerTest < ActionDispatch::IntegrationTest
       assert_response 200
     end
   end
+
+  test "show" do
+    get "/songlists/#{Songlist.first.id}.json"
+    assert_response 200
+
+    data = JSON.parse(response.body)
+    assert_equal ["id", "user_id", "title", "for_date", "created_at", "updated_at"], data.keys
+  end
 end

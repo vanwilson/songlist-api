@@ -12,4 +12,9 @@ class SonglistsController < ApplicationController
     )
     render :show
   end
+
+  def show
+    @songlist = Songlist.find_by(id: params[:id])
+    render :show
+  end
 end

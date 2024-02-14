@@ -3,4 +3,5 @@ Rails.application.routes.draw do
 
   get "/songlists" => "songlists#index"
   post "/songlists" => "songlists#create"
+  get "/songlists/:id" => "songlists#show"
 end
