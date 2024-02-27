@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get "/songs" => "songs#index"
   post "/songs" => "songs#create"
+  get "/songs/:id" => "songs#show"
 
   get "/songlists" => "songlists#index"
   post "/songlists" => "songlists#create"
