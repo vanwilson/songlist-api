@@ -14,13 +14,22 @@ class SongsControllerTest < ActionDispatch::IntegrationTest
       post "/songs.json", params: { title: "title", stanza: "stanza", chorus: "chorus", key: "A" }
       assert_response 200
     end
+  end
 
-    test "show" do
-      get "/songs/#{Song.first.id}.json"
-      assert_response 200
+  test "show" do
+    get "/songs/#{Song.first.id}.json"
+    assert_response 200
 
-      data = JSON.parse(response.body)
-      assert_equal ["id", "title", "stanza", "chorus", "key"], data.keys
-    end
+    data = JSON.parse(response.body)
+    assert_equal ["id", "title", "stanza", "chorus", "key"], data.keys
+  end
+
+  test "update" do
+    song = Song.first
+    patch "/songs/#{song.id}.json", params: { title: "Updated title" }
+    assert_response 200
+
+    data = JSON.parse(response.body)
+    assert_equal "Updated title", data["title"]
   end
 end
