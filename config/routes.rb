@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   get "/songlists" => "songlists#index"
   post "/songlists" => "songlists#create"
   get "/songlists/:id" => "songlists#show"
+  patch "/songlists/:id" => "songlists#update"
+  delete "/songlists/:id" => "songlists#destroy"
 end
